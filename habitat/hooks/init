@@ -1,0 +1,9 @@
+Set-Location {{pkg.svc_path}}
+if(Test-Path bin) { Remove-Item bin -Recurse -Force }
+New-Item -Name bin -ItemType Junction -target "{{pkg.path}}/bin" | Out-Null
+
+# Add the Windows Service
+if((Get-Service TestIOService -ErrorAction SilentlyContinue) -eq $null) {
+	$binPath = (Resolve-Path "{{pkg.svc_path}}/bin/{{pkg.name}}.exe").Path
+    &$env:systemroot\system32\sc.exe create TestIOService binpath= $binPath
+}
