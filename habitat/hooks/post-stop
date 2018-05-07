@@ -1,0 +1,5 @@
+﻿if($(Get-Service TestIOService).Status -ne "Stopped") {
+   Write-Host "{{pkg.name}} stopping..."
+   Stop-Service TestIOService
+   Write-Host "{{pkg.name}} has stopped"
+}

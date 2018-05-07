@@ -3,7 +3,7 @@ using System.IO;
 using System.Reflection;
 using System.ServiceProcess;
 
-namespace TestService
+namespace TestIOService
 {
     public partial class Program : ServiceBase
     {
@@ -53,6 +53,7 @@ namespace TestService
             {
                 statusFileDir = ConfigurationManager.AppSettings["statusFileDir"];
             }
+            File.CreateText(Path.Combine(statusFileDir, "status.txt"));
             File.WriteAllText(Path.Combine(statusFileDir, "status.txt"), message);
         }
     }

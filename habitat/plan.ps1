@@ -16,7 +16,7 @@ function Invoke-Build {
   }
 }
 
-function Invoke-Install { 
+function Invoke-Install {
   Copy-Item $HAB_CACHE_SRC_PATH/$pkg_dirname/**/bin/release/* $pkg_prefix/bin
 }
 

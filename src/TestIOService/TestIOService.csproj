@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{2A994F9F-E398-4944-9D86-B658DA128EC6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>HabService</RootNamespace>
-    <AssemblyName>HabService</AssemblyName>
+    <RootNamespace>TestIOService</RootNamespace>
+    <AssemblyName>TestIOService</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
