@@ -2,6 +2,7 @@
 using System.IO;
 using System.Reflection;
 using System.ServiceProcess;
+using System;
 
 namespace TestIOService
 {
@@ -29,7 +30,7 @@ namespace TestIOService
             WriteStatus("TestIOService is starting");
             System.Timers.Timer timer = new System.Timers.Timer
             {
-                Interval = 60000 // 60 seconds  
+                Interval = Convert.ToDouble(ConfigurationManager.AppSettings["statusFileTimer"]) // 60 seconds  
             };
             timer.Elapsed += new System.Timers.ElapsedEventHandler(this.OnTimer);
             timer.Start();
@@ -53,8 +54,10 @@ namespace TestIOService
             {
                 statusFileDir = ConfigurationManager.AppSettings["statusFileDir"];
             }
-            File.CreateText(Path.Combine(statusFileDir, "status.txt"));
-            File.WriteAllText(Path.Combine(statusFileDir, "status.txt"), message);
+            using (var tw = new StreamWriter(Path.Combine(statusFileDir, "status.txt"), true))
+            {
+                tw.WriteLine(DateTime.Now.ToString() + ": " + message);
+            }
         }
     }
 }
