@@ -30,7 +30,7 @@ namespace TestIOService
             WriteStatus("TestIOService is starting");
             System.Timers.Timer timer = new System.Timers.Timer
             {
-                Interval = Convert.ToDouble(ConfigurationManager.AppSettings["statusFileTimer"]) // 60 seconds  
+                Interval = Convert.ToDouble(ConfigurationManager.AppSettings["statusFileTimer"]) 
             };
             timer.Elapsed += new System.Timers.ElapsedEventHandler(this.OnTimer);
             timer.Start();
