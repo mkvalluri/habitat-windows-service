@@ -1,12 +1,13 @@
 $pkg_name="testioservice"
-$pkg_origin="samples"
+$pkg_origin="mkvalluri_work"
 $pkg_version="1.0.0"
 $pkg_maintainer="Murali Valluri <mvalluri.pub@gmail.com>"
 $pkg_license=@("Apache-2.0")
 $pkg_bin_dirs=@("bin")
 
-function invoke-download { }
-function invoke-verify { }
+function Invoke-SetupEnvironment {
+  Set-RuntimeEnv Test_Env_Key Test_Env_Var -force
+}
 
 function Invoke-Build {
   Copy-Item $PLAN_CONTEXT/../src/* $HAB_CACHE_SRC_PATH/$pkg_dirname -recurse -force -Exclude ".vs"
