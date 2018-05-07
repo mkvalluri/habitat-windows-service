@@ -19,6 +19,8 @@ Murali Valluri (mvalluri.pub@gmail.com)
 git clone 
 cd habitat-windows-service
 
+# Update the origin name in habitat/plan.ps1
+
 # Enter habitat studio
 hab studio enter
 
